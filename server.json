@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.glc-rag/geo-mcp",
+  "title": "GLC Geo MCP",
+  "description": "Free GeoNames-backed geospatial MCP: countries, cities, admin regions, marine, POIs (airports, peaks, lakes), coastal filters, distance and nearby search. Remote streamable HTTP; agents self-register for an API token.",
+  "version": "0.2.0",
+  "websiteUrl": "https://mcp.glc-rag.hu",
+  "repository": {
+    "url": "https://github.com/glc-rag/geo-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.glc-rag.hu/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer mcp_… API token. Agents: POST https://mcp.glc-rag.hu/api/auth/register with account_type=agent.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

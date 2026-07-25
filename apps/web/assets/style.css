@@ -1,0 +1,123 @@
+:root {
+  --bg0: #0c1210;
+  --bg1: #14201a;
+  --ink: #e8f0ea;
+  --muted: #9bb0a2;
+  --accent: #3dba7a;
+  --accent2: #c4a35a;
+  --danger: #e07070;
+  --line: rgba(232, 240, 234, 0.12);
+  --font: "DM Sans", system-ui, sans-serif;
+  --display: "Instrument Serif", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(61, 186, 122, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(196, 163, 90, 0.12), transparent 50%),
+    linear-gradient(160deg, var(--bg0), var(--bg1));
+  background-attachment: fixed;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.shell { max-width: 980px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+.brand {
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+.tagline { color: var(--muted); max-width: 36rem; margin: 0 0 1.5rem; }
+
+.nav {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
+  margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line);
+}
+.nav .spacer { flex: 1; }
+.btn {
+  appearance: none; border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+  color: var(--ink); padding: 0.55rem 0.95rem; border-radius: 8px; cursor: pointer;
+  font: inherit; transition: border-color .2s, transform .15s, background .2s;
+}
+.btn:hover { border-color: var(--accent); background: rgba(61,186,122,0.1); }
+.btn.primary { background: var(--accent); color: #062014; border-color: transparent; font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.05); text-decoration: none; }
+.btn.danger { border-color: var(--danger); color: var(--danger); }
+
+.grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.service {
+  border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.15rem;
+  background: rgba(8, 14, 12, 0.45); backdrop-filter: blur(8px);
+  animation: rise .5s ease both;
+}
+.service h2 { font-family: var(--display); font-size: 1.65rem; margin: 0 0 0.35rem; font-weight: 400; }
+.service p { color: var(--muted); margin: 0 0 0.85rem; font-size: 0.95rem; }
+.meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; }
+.badge {
+  display: inline-block; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.15rem 0.45rem; border-radius: 999px; border: 1px solid var(--line); color: var(--accent2);
+}
+
+.panel {
+  border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem;
+  background: rgba(8, 14, 12, 0.5); margin-bottom: 1rem;
+}
+.panel h2 { margin-top: 0; font-family: var(--display); font-weight: 400; font-size: 1.8rem; }
+label { display: block; font-size: 0.85rem; color: var(--muted); margin: 0.6rem 0 0.25rem; }
+input, select {
+  width: 100%; padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid var(--line);
+  background: rgba(0,0,0,0.35); color: var(--ink); font: inherit;
+}
+.row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+.msg { margin-top: 0.75rem; color: var(--accent2); font-size: 0.9rem; }
+.msg.err { color: var(--danger); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.5rem 0.35rem; border-bottom: 1px solid var(--line); }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+pre {
+  white-space: pre-wrap; background: rgba(0,0,0,0.35); padding: 0.85rem; border-radius: 8px;
+  border: 1px solid var(--line); overflow: auto;
+}
+.token-line {
+  display: inline-block;
+  max-width: min(520px, 70vw);
+  word-break: break-all;
+  white-space: pre-wrap;
+  user-select: all;
+  font-size: 0.85rem;
+}
+
+pre.code-block, .panel pre {
+  background: rgba(0,0,0,0.28);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+
+body.docs { padding: 1.5rem; }
+body.docs .top { margin-bottom: 1rem; color: var(--muted); }
+body.docs .md { max-width: 860px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+  .brand { font-size: 2.4rem; }
+}

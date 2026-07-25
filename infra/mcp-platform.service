@@ -1,0 +1,16 @@
+[Unit]
+Description=GLC MCP Platform (mcp.glc-reg.hu)
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=pergel
+Group=pergel
+WorkingDirectory=/home/pergel/mcp
+EnvironmentFile=-/home/pergel/mcp/.env
+ExecStart=/home/pergel/mcp/.venv/bin/uvicorn mcp_app.main:app --host 127.0.0.1 --port 8780
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
